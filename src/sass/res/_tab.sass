@@ -1,0 +1,169 @@
+@import "./src/sass/helpers/var"
+
+.tab
+  display: flex
+  flex-direction: row-reverse
+  width: 100%
+  margin-left: auto
+  justify-content: center
+  height: 100%
+  align-items: center
+  background-color: rgba($black, 0.5)
+
+  &-description
+    padding: 5%
+    display: flex
+    margin-left: auto
+    flex-direction: column
+    height: 100%
+    border-right: 2px solid rgba($sand-olive, 1)
+    &__item
+      display: none
+      flex-direction: column
+      align-items: flex-end
+      justify-content: space-between
+      width: 100%
+      font-size: 1.45vw
+      line-height: 2.5rem
+      margin: 2.5% auto
+      text-align: justify
+      word-wrap: normal
+      overflow-wrap: break-word
+      color: $white
+      &--active
+        display: flex
+
+  &__legend,
+  &__caption,
+  &__number
+    margin: 5% 0
+    line-height: 3rem
+
+  &__number
+    font-size: 2.45vw
+    color: rgba($sand-olive, 1)
+
+  &__legend
+    color: rgba($sand-olive, 1)
+    font-size: 2.75vw
+
+  &__caption
+    align-self: flex-start
+    font-size: 1.5vw
+
+  &-navigation
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 100%
+    height: 100%
+    align-items: center
+
+    &__item
+      font-weight: 500
+      font-size: 2rem
+      display: flex
+      height: inherit
+      padding: 10% 15%
+      margin: 10% 0
+      color: rgba($sand-olive, 1)
+      position: relative
+      width: 100%
+      text-align: center
+      justify-content: center
+      align-items: center
+      transition: $transition
+
+      &:before
+        position: absolute
+        content: ''
+        display: block
+        width: 15px
+        height: 15px
+        background-color: rgba($sand-olive, 1)
+        transform: translate(-50%, -50%) rotateZ(45deg)
+        top: 50%
+        left: 0
+        transition: $transition
+      &:hover,
+      &:focus,
+      &:active
+        cursor: pointer
+        color: $olive
+
+        &:before
+          background-color: $olive
+
+      &--active
+        color: $olive
+
+        &:before
+          background-color: $olive
+
+@media screen and (max-width: 1224px)
+  .tab
+
+    &-description
+      &__item
+        font-size: 2.25vw
+        line-height: 2.25rem
+
+    &__legend
+      font-size: 4vw
+    &__caption
+      font-size: 2.75vw
+    &__number
+      font-size: 4vw
+
+@media screen and (max-width: 768px)
+  .tab
+    &__legend
+      font-size: 5.5vw
+    &__caption
+      font-size: 3.5vw
+    &__number
+      font-size: 5.5vw
+
+    &-description
+      &__item
+        font-size: 3vw
+
+    &-navigation
+      &__item
+        font-size: 4vw
+
+@media screen and (max-width: 480px)
+  .tab
+    flex-direction: column
+
+    &__legend,
+    &__caption,
+    &__number
+      margin: 0
+
+    &__legend
+      font-size: 6.5vw
+    &__caption
+      font-size: 5.5vw
+    &__number
+      font-size: 6.5vw
+
+    &-description
+      border-top: 2px solid rgba($sand-olive, 1)
+      border-right: none
+      &__item
+        font-size: 4.8vw
+        line-height: 1.75rem
+        margin: 0
+
+    &-navigation
+      flex-direction: row
+      width: 100%
+      justify-content: center
+      &__item
+        margin: 0
+        padding: 5% 2.5%
+        font-size: 4vw
+        &:before
+          top: 100%
+          left: 50%

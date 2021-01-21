@@ -1,0 +1,48 @@
+@import "./src/sass/helpers/var"
+
+.footer
+  width: 100%
+  display: flex
+  align-items: center
+  background-color: rgba($main-color, 1)
+  border-top: 3px solid rgba($olive, 0.5)
+
+  &--wrapper
+    display: flex
+    flex-direction: column
+    width: 85%
+    margin: 0 auto
+    padding: 5% 0
+
+  &__description
+    width: 35%
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+    p
+      font-size: 1.25rem
+      line-height: 2rem
+      padding: 2rem 0
+
+.copyright
+  font-size: 1vw
+  margin: 2.5% 0
+  padding: 0
+
+@media screen and (max-width: 1600px)
+  .copyright
+    font-size: 1.25vw
+
+@media screen and (max-width: 1224px)
+  .copyright
+    font-size: 1.5vw
+
+@media screen and (max-width: 900px)
+  .copyright
+    font-size: 2vw
+
+@media screen and (max-width: 768px)
+  .copyright
+    font-size: 2.5vw
+    text-align: center

@@ -1,0 +1,47 @@
+@import "./src/sass/helpers/var"
+
+.contacts
+  padding: 5% 0 11.5%
+
+  &--wrapper
+    display: flex
+    margin: 0 auto
+    width: 40%
+    justify-content: space-between
+
+    *
+      width: 100%
+
+  .img-wrapper
+    width: 75%
+
+@media screen and (max-width: 1366px)
+  .contacts
+    &--wrapper
+      .submenu-links__item
+        font-size: 1.25rem
+
+@media screen and (max-width: 1024px)
+  .contacts
+
+    &--wrapper
+      align-items: flex-start
+      margin-bottom: 2.5%
+      width: 100%
+
+    &__item
+      flex-direction: row
+      flex-wrap: wrap
+
+      .shop-location
+        width: 50%
+        margin-bottom: 5%
+        &:nth-child(2n)
+          align-items: flex-end
+          & > ul li
+            text-align: right
+
+
+    .img-wrapper
+      width: 100%
+

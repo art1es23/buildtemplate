@@ -1,0 +1,71 @@
+@import "./src/sass/helpers/var"
+
+.social-menu
+  display: flex
+  width: 65%
+  justify-content: space-between
+
+  &__item
+    margin-right: 1.5rem
+    display: flex
+    justify-content: center
+    width: 3.5vw
+    height: 3.5vw
+    &:last-child
+      margin: 0
+
+  &__link
+    height: 100%
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    background:
+      repeat: no-repeat
+      position: center
+      size: contain
+    transition: $transition
+
+    &:hover,
+    &:focus,
+    &:active
+      filter: invert(25%)
+
+.facebook
+  background:
+    image: url("../img/sprite.svg#facebook")
+
+.reddit
+  background:
+    image: url("../img/sprite.svg#reddit")
+
+.instagram
+  background:
+    image: url("../img/sprite.svg#instagram")
+
+@media screen and (max-width: 1600px)
+  .social-menu
+    &__item
+      margin-right: 1rem
+
+@media screen and (max-width: 1366px)
+  .social-menu
+    width: 70%
+    &__item
+      width: 4vw
+      height: 4vw
+
+@media screen and (max-width: 768px)
+  .social-menu
+    justify-content: flex-end
+    &__item
+      width: 5vw
+      height: 5vw
+@media screen and (max-width: 480px)
+  .social-menu
+    justify-content: flex-end
+    &__item
+      width: 12.5vw
+      height: 12.5vw
+
+

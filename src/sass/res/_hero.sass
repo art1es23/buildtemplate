@@ -1,0 +1,76 @@
+@import "./src/sass/helpers/var"
+
+.hero
+  width: 100%
+  padding: 2.5% 7.5%
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__title,
+  &__description
+    display: flex
+    justify-content: center
+    align-items: baseline
+    padding: 2.5%
+
+  &__title
+    width: 50%
+    text-align: right
+    font-size: 2.75rem
+    line-height: 3rem
+    position: relative
+
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      width: 3px
+      height: 80%
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+      background-color: $black
+
+
+  &__description
+    font-size: 1.25rem
+    line-height: 2rem
+    text-align: justify
+
+@media screen and (max-width: 1224px)
+    .hero
+      &__title
+        font-size: 2.9vw
+
+@media screen and (max-width: 1024px)
+  .hero
+    flex-wrap: wrap
+    &__description
+      font-size: 1.25rem
+      width: 100%
+    &__title
+      width: 50%
+      font-size: 5vw
+    &__img
+      width: 40%
+      height: auto
+
+@media screen and (max-width: 900px)
+  .hero
+    &__description
+      padding: 2.5rem 0
+@media screen and (max-width: 768px)
+  .hero
+    &__title
+      width: 60%
+      font-size: 6.5vw
+
+@media screen and (max-width: 480px)
+  .hero
+    &__img
+      width: 30%
+    &__title
+      font-size: 7.5vw
+      width: 65%
+      padding: 0 5%
