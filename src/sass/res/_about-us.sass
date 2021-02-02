@@ -1,0 +1,56 @@
+@import "./src/sass/helpers/var"
+
+.about-us
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    &__img
+        position: relative
+        width: 30%
+        min-height: 75vh
+        overflow: initial
+
+        &::before
+            width: 100%
+            height: 100%
+            content: ''
+            display: block
+            position: absolute
+            top: 5%
+            left: 15%
+            z-index: 2
+            background-color: $black
+            transform: translate(10%, 10%)
+
+        img
+            position: absolute
+            z-index: 3
+
+    &__description
+        display: flex
+        flex-direction: column
+        padding: 5% 15%
+        width: 70%
+
+    &__text
+        font-size: 1.1vw
+        text-align: justify
+        padding: 2.5% 0
+        color: $black
+        line-height: 1.5vw
+
+@media screen and ( max-width: 1600px)
+    .about-us
+        &__description
+            padding: 5% 17.5%
+@media screen and ( max-width: 1224px)
+    .about-us
+        &__img
+            width: 40%
+            &::before
+                left: 10%
+        &__description
+            padding: 5% 7.5%
+            width: 50%

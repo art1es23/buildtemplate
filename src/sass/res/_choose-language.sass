@@ -4,15 +4,13 @@
   display: flex
   justify-content: space-between
   align-items: center
-  width: 7.5%
 
   &__item
     display: flex
-    font-size: 1.25rem
+    font-size: 1.1vw
     border: none
     background-color: transparent
     position: relative
-    color: $white
     text-align: center
     justify-content: center
     align-items: center
@@ -24,24 +22,35 @@
       color: $olive
 
     &:nth-child(2n)
-      border:
-        left: 1px solid $white
-        right: 1px solid $white
+      &::after,
+      &::before
+        content: ''
+        display: block
+        position: absolute
+        background-color: $white
+        width: 1px
+        height: 100%
+        top: 50%
+        transform: translate(-50%, -50%)
 
-@media screen and (max-width: 1366px)
-  .chooseLanguage
-    width: 10%
+      &::before
+        left: 0
+      &::after
+        right: 0
+
 @media screen and (max-width: 1224px)
   .chooseLanguage
-    width: 12.5%
+    &__item
+      font-size: 1.25vw
 @media screen and (max-width: 1024px)
   .chooseLanguage
-    width: 17.5%
-@media screen and (max-width: 768px)
-  .chooseLanguage
-    width: 22.5%
-@media screen and (max-width: 768px)
-  .chooseLanguage
-    width: 30%
     &__item
-      width: calc(100% / 3)
+      font-size: 1.5vw
+@media screen and (max-width: 768px)
+  .chooseLanguage
+    &__item
+      font-size: 2vw
+@media screen and (max-width: 480px)
+  .chooseLanguage
+    &__item
+      font-size: 4vw

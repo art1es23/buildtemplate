@@ -1,0 +1,377 @@
+@import './src/sass/helpers/var'
+
+.slider
+    position: relative
+    display: block
+    width: 100%
+    width: 100vw
+    height: 100vh
+    overflow: hidden
+    background-image: url('../img/slider_bg.jpg')
+    background-attachment: fixed
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+
+    &__nav-bar
+        position: absolute
+        width: auto
+        min-height: 5rem
+        bottom: 0
+        left: 50%
+        transform: translateX( -50% )
+        text-align: center
+        background-color: transparent
+        z-index: 100
+        display: flex
+        justify-content: space-between
+
+    &__arrow
+        position: absolute
+        top: 50%
+        transform: translateY( -50% )
+        width: 5rem
+        height: 5rem
+        transition: 0.2s
+        cursor: pointer
+        z-index: 100
+        opacity: 0.8
+
+    &__arrow:hover
+        opacity: 1
+
+    &__arrow_prev,
+    &__arrow_next
+        width: 5rem
+        height: 5rem
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: auto 5rem
+    &__arrow_prev
+        background-image: url('../img/arrow__left-white.png')
+        left: 1rem
+
+    &__arrow_next
+        background-image: url('../img/arrow__right-white.png')
+        right: 1rem
+
+    &--size
+        height: 100vh
+
+.nav-control
+    position: relative
+    display: inline-block
+    vertical-align: middle
+    opacity: 0.5
+    width: 2.5rem
+    height: 2.5rem
+    transition: 0.2s
+    cursor: pointer
+    background-image: url('../img/dot-black.png')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 75% 75%
+    z-index: 3
+
+    &:hover
+        opacity: 0.8
+
+    &_active
+        opacity: 1
+
+.slider-list
+    position: relative
+    overflow: hidden
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    list-style-type: none
+
+    &::before
+        content: ''
+        display: block
+        padding-top: calc(9 / 16 * 100%)
+
+    &__item
+        position: absolute
+        top: 0
+        left: 0
+        -webkit-transform: translateX(100%)
+        transform: translateX(100%)
+        width: 100%
+        height: 100%
+        background-repeat: no-repeat
+        background-position: 50% 50%
+        background-size: cover
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 16vw
+        color: #000
+        will-change: transform
+        z-index: 1
+
+    &__item .back__element
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 1
+
+    &__item .back__element img
+        position: relative
+        display: block
+        width: 100%
+        max-width: 75%
+        height: auto
+        top: 50%
+        left: 50%
+        transform: translate( -50%, -50% )
+
+    &__item .main__element
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 3
+
+    &__item .main__element img
+        position: relative
+        display: block
+        width: 100%
+        max-width: 100%
+        height: 100%
+        top: 50%
+        left: 50%
+        transform: translate( -50%, -50% )
+
+    &__item .front__element
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 4
+
+    &__item .front__element img
+        position: relative
+        display: block
+        width: 100%
+        max-width: 55%
+        height: auto
+        top: 50%
+        left: 50%
+        transform: translate( -50%, -50% )
+
+    &__item .title__element
+        position: absolute
+        display: block
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 2
+
+    &__item .title__element .title
+        position: relative
+        display: block
+        width: 100%
+        height: auto
+        top: 15%
+        left: 70%
+        transform: translate( -50%, 0% )
+        color: #eef2f3
+        text-align: center
+        font-size: 10vw
+
+    &__item .more__element
+        position: relative
+        display: block
+        width: 100%
+        height: 100%
+        z-index: 10
+
+    &__item .more__element .content
+        position: absolute
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        width: 100%
+        max-width: 75%
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        height: auto
+        margin: 0 auto
+        padding: 5% 2rem
+        color: #2e3131
+        text-align: left
+
+    &__item .more__element .content .headline
+        position: relative
+        display: block
+        max-width: 240px
+        font-family: 'Molle', cursive
+        font-size: 1vw
+        line-height: 1.5vw
+
+    &__item .more__element .content .excerpt
+        display: flex
+        max-width: 20%
+        font-size: 1vw
+        line-height: 1.25vw
+        padding: 1rem 0
+
+    &__item .more__element .content .link
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 10rem
+        height: 10rem
+        border-radius: 50%
+        font-size: 1vw
+        line-height: 24px
+        box-shadow: 0 14px 28px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.06)
+        transition: all 0.4s ease
+
+        &:hover
+            box-shadow: 0 0 20px 5px rgba(#d43325, 1)
+
+    &__item .more__element .content .link .fill
+        position: absolute
+        background-image: linear-gradient(to right, #d43325, #f36e67)
+        background-size: 150% 150%
+        height: 100%
+        width: 100%
+        border-radius: 50%
+        margin: 0
+        z-index: -1
+        transition: all 0.4s ease
+        -webkit-animation: gradient 3s ease infinite
+        -moz-animation: gradient 3s ease infinite
+        animation: gradient 3s ease infinite
+
+    &__item .more__element .content .link .fill.fill-dark
+        background-image: linear-gradient(to right, #252228, #848f9e)
+
+    &__item .more__element .content .link a
+        position: absolute
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100%
+        color: #dde3e6
+        font-weight: 700
+        text-align: center
+        text-decoration: none
+        outline: 0px none
+        outline: 0px
+        font-size: 0.8vw
+        z-index: 2
+        top: 50%
+        left: 50%
+        transition: $transition
+        transform: translate(-50%, -50%)
+
+    &__item .more__element .content .link
+        &:hover
+            box-shadow: 0 19px 38px rgba(0,0,0,0.25), 0 15px 12px rgba(0,0,0,0.06)
+            a
+                color: black
+
+    &__item_active
+        -webkit-transform: translateX(0)
+        transform: translateX(0)
+        z-index: 2
+
+@media screen and ( max-width: 1600px)
+    .slider-list
+        &__item .more__element .content .excerpt
+            max-width: 25%
+            font-size: 1.2vw
+
+@media screen and ( max-width: 1366px)
+    .slider
+    .slider-list
+        &__item .more__element .content
+            max-width: 90%
+        &__item .more__element .content .link a
+            font-size: 1vw
+
+@media screen and ( max-width: 1024px)
+    .slider-list
+        &__item .more__element .content .excerpt
+            max-width: 35%
+            font-size: 1.5vw
+            line-height: 2vw
+
+@media screen and ( max-width: 768px)
+    .slider
+        height: 50vh
+    .slider-list
+        &__item .more__element .content
+            padding: 10% 7.5%
+
+            & .excerpt
+                max-width: 40%
+                font-size: 1.75vw
+                line-height: 2.25vw
+        &__item .more__element .content .link a
+            font-size: 1.75vw
+
+@media screen and ( max-width: 480px)
+    .slider
+        height: 100vh
+        &__nav-bar
+            min-height: 3.5rem
+
+        &__arrow_prev,
+        &__arrow_next
+            width: 2.5rem
+            height: 2.5rem
+            background-size: auto 2.5rem
+
+    .slider-list
+        &__item
+            & .more__element
+                & .content
+                    max-width: 100%
+                    flex-direction: column
+                    padding: 15% 7.5%
+                    align-items: center
+                    justify-content: flex-end
+
+                    & .link
+                        width: 7.5rem
+                        height: 7.5rem
+                        a
+                            font-size: 3.5vw
+
+                    & .excerpt
+                        max-width: 70%
+                        font-size: 3.5vw
+                        line-height: 5vw
+                        text-align: center
+
+            & .main__element img,
+            & .back__element img,
+            & .front__element img
+                height: 50%
+                transform: translate(-50%, 0)

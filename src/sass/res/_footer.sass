@@ -4,45 +4,80 @@
   width: 100%
   display: flex
   align-items: center
-  background-color: rgba($main-color, 1)
-  border-top: 3px solid rgba($olive, 0.5)
+  position: sticky
+  left: 0
+  bottom: 0
+  z-index: 1
+  padding: 5% 12.5%
+  background-position: no-repeat
+  background-size: cover
+  background-repeat: no-repeat
+  background-image: url('../img/footer_bg.jpg')
 
-  &--wrapper
-    display: flex
-    flex-direction: column
-    width: 85%
-    margin: 0 auto
-    padding: 5% 0
+.menu-links
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
 
-  &__description
-    width: 35%
+  &__item
+    width: calc( 100% / 3 )
     display: flex
-    flex-direction: column
+    min-height: 15rem
+    height: auto
+    // border: 1px solid $white
+    padding: 1.5vw
     justify-content: center
+    align-items: center
+    position: relative
+    line-height: 1.1vw
+    color: $black
+    &:nth-child(even)
+      margin: 0 2vw
+
+    &::after
+      display: block
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      border: solid 1px $green
+
+    img
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translate(-50%, -50%)
+      z-index:
+      background-color: $black
+      z-index: 5
 
     p
-      font-size: 1.25rem
-      line-height: 2rem
-      padding: 2rem 0
+      font-size: 0.8vw
 
-.copyright
-  font-size: 1vw
-  margin: 2.5% 0
-  padding: 0
+.phone-list
+  margin-right: 0.25vw
+  h3
+    font-size: 0.7vw
+    font-weight: 600
+  a
+    font-size: 0.8vw
+    color: $black
+    &:hover
+      cursor: pointer
+      color: $green
 
-@media screen and (max-width: 1600px)
-  .copyright
-    font-size: 1.25vw
+@media screen and ( max-width: 1366px)
+  .footer
+    padding: 7.5%
 
-@media screen and (max-width: 1224px)
-  .copyright
-    font-size: 1.5vw
+  .menu-links
+    &__item
+      min-height: 12.5rem
+      &:nth-child(even)
+        margin: 0 1.25rem
 
-@media screen and (max-width: 900px)
-  .copyright
-    font-size: 2vw
-
-@media screen and (max-width: 768px)
-  .copyright
-    font-size: 2.5vw
-    text-align: center
+  .phone-list
+    margin-right: 0.25rem

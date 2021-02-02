@@ -1,6 +1,11 @@
+import Slider from './res/_Slider';
+import Menu from './res/_Menu';
+// ===== init ======
 
-"use sctrict";
 
-const category = 'toys';
 
-console.log(category);
+let slider = new Slider({
+    element: document.querySelector(".slider")
+});
+
+let menu = new Menu();
