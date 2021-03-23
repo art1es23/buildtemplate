@@ -1,0 +1,48 @@
+@import '../helpers/var'
+
+*, *:before, *:after
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html,
+body
+    margin: 0
+    padding: 0
+    font-family: Raleway
+    overflow-x: hidden
+
+a
+    color: $black
+    transition: $transition
+    text-decoration: none
+    &:hover
+        color: $white
+
+strong
+    font-weight: 700
+
+.section
+    min-height: 100vh
+    &:nth-child(even)
+        background-color: black
+
+.btn
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    border: none
+    padding: 1rem 1.5rem
+    border-radius: 3px
+    font-size: calc(0.25rem + 0.75vw)
+    background-color: transparent
+    font-family: NewYork
+
+    &--color
+        background-color: $red
+        color: $white
+
+.main-color
+    color: $red
+    font-style: italic

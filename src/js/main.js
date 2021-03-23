@@ -1,6 +1,3 @@
-
-"use sctrict";
-
-const category = 'toys';
-
-console.log(category);
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('GODNESS!!!');
+});

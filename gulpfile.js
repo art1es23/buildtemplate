@@ -2,7 +2,13 @@
 require('require-dir')('./gulp', { recurse: true });*/
 
 const gulp = require('gulp');
-const {parallel, series, watch, src, dest} = require('gulp');
+const {
+    parallel,
+    series,
+    watch,
+    src,
+    dest
+} = require('gulp');
 /*
 const cfg = require('../package.json').config;
 */
@@ -24,9 +30,11 @@ const webpackStream = require('webpack-stream');
 const uglify = require('gulp-uglify');
 const tinyPNG = require('gulp-tinypng-compress');
 
+const assets = './src/assets/';
+
 sass.compiler = require('node-sass');
 
-const  styles = () => {
+const styles = () => {
     return gulp.src('./src/sass/**/*.{scss,sass}')
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -49,7 +57,7 @@ const  styles = () => {
         .pipe(browserSync.stream());
 };
 
-const htmlInclude =  () => {
+const htmlInclude = () => {
     return src(['./src/*.html'])
         .pipe(fileInclude({
             prefix: '@',
@@ -60,12 +68,12 @@ const htmlInclude =  () => {
 };
 
 const imgMove = () => {
-    return src(['./src/img/*.jpg', './src/img/*.jpeg', './src/img/*.png', './src/img/*.json', './src/img/*.ico'])
+    return src([`${assets}img/*.jpg`, `${assets}img/*.jpeg`, `${assets}img/*.png`, `${assets}img/*.json`, `${assets}img/*.ico`])
         .pipe(dest('./build/img/'));
 };
 
 const svgSprites = () => {
-    return src('./src/img/svg/**.svg')
+    return src(`${assets}img/svg/**.svg`)
         .pipe(svgSprite({
             mode: {
                 stack: {
@@ -77,15 +85,15 @@ const svgSprites = () => {
 };
 
 const resourcesMove = () => {
-    return src('./src/resources/**')
-        .pipe(dest('./build/'));
+    return src(`${assets}/resources/**`)
+        .pipe(dest('./build/resources/'));
 };
 
 const fonts = () => {
-    src('./src/fonts/**.ttf')
+    src(`${assets}fonts/**.ttf`)
         .pipe(ttf2wof())
         .pipe(dest('./build/fonts/'));
-    return src('./src/fonts/**.ttf')
+    return src(`${assets}fonts/**.ttf`)
         .pipe(ttf2wof2())
         .pipe(dest('./build/fonts/'));
 };
@@ -151,7 +159,7 @@ const fontsStyle = (done) => {
                 let weight = checkWeight(fontname);
 
                 if (c_fontname != fontname) {
-                    fs.appendFile(srcFonts, '@include font-face("' + font + '", "' + fontname + '", ' + weight +')\r\n', cb);
+                    fs.appendFile(srcFonts, '@include font-face("' + font + '", "' + fontname + '", ' + weight + ')\r\n', cb);
                 }
                 c_fontname = fontname;
             }
@@ -168,22 +176,27 @@ const clean = () => {
 const scripts = () => {
     return src('./src/js/main.js')
         .pipe(webpackStream({
+            mode: 'development',
             output: {
-                filename: 'main.js',
+                filename: 'script.js',
             },
             module: {
-                rules: [
-                    {
-                        test: /\.m?js$/,
-                        exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env']
-                            }
+                rules: [{
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                ['@babel/preset-env', {
+                                    debug: true,
+                                    corejs: 3,
+                                    useBuiltIns: "usage"
+                                }]
+                            ]
                         }
                     }
-                ]
+                }]
             }
         }))
         .on('error', function (err) {
@@ -206,11 +219,11 @@ const server = () => {
     });
     watch('./src/sass/**/*.{scss,sass}', styles);
     watch('./src/*.html', htmlInclude);
-    watch('./src/img/**', imgMove);
-    watch('./src/img/svg/*.svg', svgSprites);
-    watch('./src/resources/**', resourcesMove);
-    watch('./src/fonts/**', fonts);
-    watch('./src/fonts/**', fontsStyle);
+    watch(`${assets}img/**`, imgMove);
+    watch(`${assets}img/svg/*.svg`, svgSprites);
+    watch(`${assets}resources/**`, resourcesMove);
+    watch(`${assets}fonts/**`, fonts);
+    watch(`${assets}fonts/**`, fontsStyle);
     watch('./src/js/**/*.js', scripts);
 };
 
@@ -231,7 +244,7 @@ exports.default = series(clean, parallel(htmlInclude, scripts, imgMove), styles,
 exports.default = series(clean, parallel(htmlInclude, scripts, fonts, imgMove, svgSprites, resourcesMove), fontsStyle, styles, server);
 
 const tinyImages = () => {
-    return src('images/src/**/*.{png,jpg,jpeg}')
+    return src(`${assets}img/**/*.{png,jpg,jpeg}`)
         .pipe(tinyPNG({
             key: 'mpV6rftBN8Fc0cCB7LknY5y4ZfbyrPjc',
             log: true,
@@ -247,25 +260,23 @@ const scriptsProduction = () => {
                 filename: 'main.js',
             },
             module: {
-                rules: [
-                    {
-                        test: /\.m?js$/,
-                        exclude: /(node_modules|bower_components)/,
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env']
-                            }
+                rules: [{
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
                         }
                     }
-                ]
+                }]
             }
         }))
         .pipe(uglify().on("error", notify.onError()))
         .pipe(dest('./build/js/'));
 };
 
-const  stylesProduction = () => {
+const stylesProduction = () => {
     return gulp.src('./src/sass/**/*.{scss,sass}')
         .pipe(sass({
             errorLogToConsole: true,

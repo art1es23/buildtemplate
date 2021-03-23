@@ -13,7 +13,9 @@
     <header id="header" class="header">
         <div class="logo">
             <a href="#" class="logo__link img-wrapper">
-                <img src="./img/logo.png" alt="">
+                <svg>
+                    <use xlink:href="./img/sprite.svg#004-dinosaur"></use>
+                </svg>
             </a>
         </div>
 
@@ -22,30 +24,10 @@
         <nav class="navigation">
             <ul class="navigation--wrapper">
                 <li class="navigation__item"><a href="#" class="navigation__link">Головна</a></li>
-                <li class="navigation__item"><a href="./about.html" class="navigation__link">Про нас</a></li>
-                <li class="navigation__item">
-                    <a href="./products.html" class="navigation__link">Продукція</a>
-                    <ul class="submenu">
-                        <li class="submenu__item">
-                            <a href="" class="submenu__link">Submenu Link</a>
-                            <ul>
-                                <li><a href="">Dropdown link</a></li>
-                                <li><a href="">Dropdown link</a></li>
-                                <li><a href="">Dropdown link</a></li>
-                                <li><a href="">Dropdown link</a></li>
-                                <li><a href="">Dropdown link</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu__item"><a href="" class="submenu__link">Submenu Link</a></li>
-                        <li class="submenu__item"><a href="" class="submenu__link">Submenu Link</a></li>
-                        <li class="submenu__item"><a href="" class="submenu__link">Submenu Link</a></li>
-                        <li class="submenu__item"><a href="" class="submenu__link">Submenu Link</a></li>
-                    </ul>
-                </li>
-                <li class="navigation__item"><a href="./blog.html" class="navigation__link">Блог</a></li>
-                <li class="navigation__item"><a href="./shop.html" class="navigation__link">Магазин</a></li>
-                <li class="navigation__item"><a href="./downloads.html" class="navigation__link">Завантажити</a></li>
-                <li class="navigation__item"><a href="./contacts.html" class="navigation__link">Контакти</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Про нас</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Продукція</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Блог</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Контакти</a></li>
             </ul>
         </nav>
 
@@ -57,114 +39,43 @@
 
     </header>
 
-    <div data-barba="container" data-barba-namespace="home" class="wrapper">
+    <main id="mainContent" class="main-content">
 
-        <main id="mainContent" class="main-content">
+        <section class="section">
 
-            <section id="section1" class="slider">
-                    <div class="slider--wrapper">
-                        <div class="slider__item img-wrapper activeSlide">
-                            <img src="./img/slide1.jpeg" alt="">
-                            <img src="./img/slide-product.png" alt="">
-                        </div>
-                        <div class="slider__item img-wrapper">
-                            <img src="./img/slide2.jpeg" alt="">
-                            <img src="./img/slide-product.png" alt="">
-                        </div>
-                        <div class="slider__item img-wrapper">
-                            <img src="./img/slide3.jpeg" alt="">
-                            <img src="./img/slide-product.png" alt="">
-                        </div>
-                        <a class="slider-btn__item btn--prev"><span class="arrow arrow__left"></span></a>
-                        <a class="slider-btn__item btn--next"><span class="arrow arrow__right"></span></a>
-                    </div>
-                    <div class="slider-dots--wrapper">
-                        <span class="slider-dots__item active"></span>
-                        <span class="slider-dots__item"></span>
-                        <span class="slider-dots__item"></span>
-                    </div>
-            </section>
+        </section>
 
-            <section class="section">
+        <section class="section">
 
-            </section>
-            <section class="section">
+        </section>
+        <section class="section">
 
-            </section>
+        </section>
 
-            <section class="section">
+        <section class="section">
 
-            </section>
+        </section>
 
-            <section class="section">
+        <section class="section">
 
-            </section>
+        </section>
 
-            <section class="section">
+        <section class="section">
 
-            </section>
+        </section>
 
-            <section class="section">
+        <section class="section">
 
-            </section>
+        </section>
 
-
-
-        </main>
-
-
-    </div>
+    </main>
 
     <footer id="footer" class="footer">
-        <div class="scroll-up">
+        <!-- <div class="scroll-up">
             <a href="" class="scroll-up__link"></a>
-        </div>
+        </div> -->
 
         <div class="footer--wrapper">
-
-            <ul class="footer__menu menu-links">
-                <li class="menu-links__item">
-                    <h3 class="menu-links__title">Контакти</h3>
-                    <ul class="submenu-links">
-                        <li class="submenu-links__item">
-                            <span>T:</span>
-                            <a href="tel:+3802351047000">+38(023)510 47 00</a>
-                        </li>
-                        <li class="submenu-links__item">
-                            <span>E:</span>
-                            <a href="mail:info@gmail.com">info@gmail.com</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-links__item">
-                    <h3 class="menu-links__title">Розташування</h3>
-                    <ul class="submenu-links">
-                        <li class="submenu-links__item">3rd Km National</li>
-                        <li class="submenu-links__item">Road Katerini - Larissa</li>
-                        <li class="submenu-links__item">Greece</li>
-                    </ul>
-                </li>
-                <li class="menu-links__item">
-                    <h3 class="menu-links__title">Google Maps</h3>
-                    <ul class="submenu-links">
-                        <li class="submenu-links__item"><a href="">Open in maps</a></li>
-                    </ul>
-                </li>
-                <li class="menu-links__item">
-                    <h3 class="menu-links__title">Соціальні мережі</h3>
-                    <ul class="submenu-links social-menu">
-                        <li class="social-menu__item">
-                            <a class="social-menu__link facebook" href=""></a>
-                        </li>
-                        <li class="social-menu__item">
-                            <a class="social-menu__link reddit" href=""></a>
-                        </li>
-                        <li class="social-menu__item">
-                            <a class="social-menu__link instagram" href=""></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
 
             <p class="copyright">&copy; qmpwwsd</p>
 
@@ -178,6 +89,6 @@
         <use xlink:href="./img/svg/sprite.svg#004-dinosaur"></use>
     </svg>-->
 
-    <script src="./js/main.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
