@@ -30,6 +30,8 @@ const webpackStream = require('webpack-stream');
 const uglify = require('gulp-uglify');
 const tinyPNG = require('gulp-tinypng-compress');
 
+const pug = require('gulp-pug');
+
 const assets = './src/assets/';
 
 sass.compiler = require('node-sass');
@@ -55,6 +57,14 @@ const styles = () => {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./build/css/'))
         .pipe(browserSync.stream());
+};
+
+const converseInHTML = () => {
+    return gulp.src(`${assets}templates/*.pug`)
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest('./src/'));
 };
 
 const htmlInclude = () => {
@@ -218,6 +228,7 @@ const server = () => {
         /*files: ['build/!*.html', 'build/!**!/!*.css', 'build/img/!*.*', 'build/!**!/!*.js']*/
     });
     watch('./src/sass/**/*.{scss,sass}', styles);
+    watch(`${assets}templates/*.pug`, converseInHTML);
     watch('./src/*.html', htmlInclude);
     watch(`${assets}img/**`, imgMove);
     watch(`${assets}img/svg/*.svg`, svgSprites);
@@ -229,6 +240,7 @@ const server = () => {
 
 exports.styles = styles;
 exports.server = server;
+exports.converseInHTML = converseInHTML;
 exports.htmlInclude = htmlInclude;
 exports.imgMove = imgMove;
 exports.svgSprites = svgSprites;
@@ -241,7 +253,7 @@ exports.scripts = scripts;
 /*
 exports.default = series(clean, parallel(htmlInclude, scripts, imgMove), styles, server);
 */
-exports.default = series(clean, parallel(htmlInclude, scripts, fonts, imgMove, svgSprites, resourcesMove), fontsStyle, styles, server);
+exports.default = series(clean, parallel(converseInHTML, scripts, fonts, imgMove, svgSprites, resourcesMove), fontsStyle, htmlInclude, styles, server);
 
 const tinyImages = () => {
     return src(`${assets}img/**/*.{png,jpg,jpeg}`)

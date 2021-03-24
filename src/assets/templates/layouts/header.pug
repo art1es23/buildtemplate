@@ -1,0 +1,19 @@
+- var menuValues = ['Main', 'About', 'Works', 'Blog', 'Contacts']
+- var langValues = ['UA', 'RU', 'EN']
+
+include mixin
+
+header(id = "header" class="header")
+    .logo
+        a.logo__link(href="#")
+            +svg('009-flamingo')
+    .menu
+        span
+    nav.navigation
+        ul.navigation__inner
+            each value in menuValues
+                li.navigation__item
+                    a.navigation__link(href="#") #{value}
+    .choose-language
+        each value in langValues
+            button.choose-language__item #{value}

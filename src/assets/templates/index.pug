@@ -1,0 +1,13 @@
+
+extends layouts/base
+
+block content
+    include layouts/header
+    main(id="main" class="main")
+        - for (var x = 0; x < 5; x++)
+            section.section
+    footer(id="footer" class="footer")
+        .footer__inner
+            p.copy.
+                &copy; qmpwwsd
+    
