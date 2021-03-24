@@ -1,4 +1,5 @@
 - var menuValues = ['Main', 'About', 'Works', 'Blog', 'Contacts']
+- var linkValues = ['./index.html', './about.html', './works.html', './blog.html', './contacts.html' ]
 - var langValues = ['UA', 'RU', 'EN']
 
 include mixin
@@ -11,9 +12,9 @@ header(id = "header" class="header")
         span
     nav.navigation
         ul.navigation__inner
-            each value in menuValues
+            - for (var x = 0; x < menuValues.length; x++)
                 li.navigation__item
-                    a.navigation__link(href="#") #{value}
+                    a.navigation__link(href=linkValues[x]) #{menuValues[x]}
     .choose-language
         each value in langValues
             button.choose-language__item #{value}

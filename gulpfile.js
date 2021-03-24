@@ -228,7 +228,7 @@ const server = () => {
         /*files: ['build/!*.html', 'build/!**!/!*.css', 'build/img/!*.*', 'build/!**!/!*.js']*/
     });
     watch('./src/sass/**/*.{scss,sass}', styles);
-    watch(`${assets}templates/*.pug`, converseInHTML);
+    watch(`${assets}templates/**`, converseInHTML);
     watch('./src/*.html', htmlInclude);
     watch(`${assets}img/**`, imgMove);
     watch(`${assets}img/svg/*.svg`, svgSprites);

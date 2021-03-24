@@ -62,6 +62,6 @@
   },
   "dependencies": {
     "gsap": "^3.5.1",
-    "jquery": "^3.5.1",
+    "jquery": "^3.5.1"
   }
 }
