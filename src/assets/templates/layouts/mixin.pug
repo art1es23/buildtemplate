@@ -1,3 +1,7 @@
+mixin navLink(link, name)
+    li.navigation__item
+        a(href=link).navigation__link=name
+
 mixin svg(name)
     svg
         use(xlink:href=`/img/sprite.svg#${name}`)

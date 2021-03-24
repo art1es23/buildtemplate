@@ -1,4 +1,4 @@
-- var menuValues = ['Main', 'About', 'Works', 'Blog', 'Contacts']
+- var nameValues = ['Main', 'About', 'Works', 'Blog', 'Contacts']
 - var linkValues = ['./index.html', './about.html', './works.html', './blog.html', './contacts.html' ]
 - var langValues = ['UA', 'RU', 'EN']
 
@@ -12,9 +12,15 @@ header(id = "header" class="header")
         span
     nav.navigation
         ul.navigation__inner
-            - for (var x = 0; x < menuValues.length; x++)
-                li.navigation__item
-                    a.navigation__link(href=linkValues[x]) #{menuValues[x]}
+            //- +navLink('./index.html', 'Home')
+            //- +navLink('./about.html', 'About')
+            //- +navLink('./works.html', 'Works')
+            //- +navLink('./blog.html', 'Blog')
+            //- +navLink('./contacts.html', 'Contacts')
+            
+            - for (var i = 0; i < linkValues.length; i++)
+                +navLink(linkValues[i], nameValues[i])
+
     .choose-language
         each value in langValues
             button.choose-language__item #{value}
