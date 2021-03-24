@@ -1,5 +1,4 @@
-- var nameValues = ['Main', 'About', 'Works', 'Blog', 'Contacts']
-- var linkValues = ['./index.html', './about.html', './works.html', './blog.html', './contacts.html' ]
+- var linkValues = [{link: './index.html', name: 'Main'}, {link: './about.html', name: 'About'}, {link: './works.html', name: 'Works'}, {link: './blog.html', name: 'Blog'}, {link: './contacts.html', name: 'Contacts'}]
 - var langValues = ['UA', 'RU', 'EN']
 
 include mixin
@@ -18,8 +17,8 @@ header(id = "header" class="header")
             //- +navLink('./blog.html', 'Blog')
             //- +navLink('./contacts.html', 'Contacts')
             
-            - for (var i = 0; i < linkValues.length; i++)
-                +navLink(linkValues[i], nameValues[i])
+            each i in linkValues
+                +navLink(i.link, i.name)
 
     .choose-language
         each value in langValues
