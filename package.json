@@ -61,11 +61,7 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
-    "@barba/core": "^2.9.7",
-    "@barba/css": "^2.1.15",
     "gsap": "^3.5.1",
     "jquery": "^3.5.1",
-    "pixi-filters": "^3.1.1",
-    "pixi.js": "^5.3.3"
   }
 }
