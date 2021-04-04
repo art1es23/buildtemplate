@@ -1,0 +1,10 @@
+include mixin
+footer(id="footer" class="footer")
+    .container.footer--wrapper
+        h2.footer__title Contact with me
+        ul.footer__menu.social-menu
+            each item in socialLinks
+                li.social-menu__item
+                    a.social-menu__link(class=item) #{item}
+                        +svg(item)
+    .footer__linse

@@ -11,16 +11,53 @@ body
     padding: 0
     font-family: Raleway
     overflow-x: hidden
-
+    position: relative
+    background-color: $black
+    color: $white
 a
     color: $black
-    transition: $transition
+    transition: color 0.3s ease-in-out
     text-decoration: none
     &:hover
         color: $white
 
 strong
     font-weight: 700
+canvas
+    position: fixed
+    z-index: 1
+
+main
+    position: relative
+    z-index: 5
+
+.container
+    width: 70%
+    margin: 0 auto
+    display: flex
+
+.title
+    font-weight: 700
+.insert
+    font-weight: 800
+    color: $yellow
+    margin-left: 0.25rem
+
+.link
+    font-size: calc(0.5rem + 0.75vw)
+    line-height: calc(0.75rem + 0.75vw)
+    text-align: center
+    width: 15rem
+    padding: 1.25rem 2rem
+    border: 1px solid $yellow
+    color: $yellow
+    transition: $transition
+    &:active,
+    &:hover,
+    &:focus
+        cursor: pointer
+        background-color: rgba($yellow, 0.5)
+        color: $white
 
 .section
     display: flex

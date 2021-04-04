@@ -1,0 +1,48 @@
+@import '../helpers/var'
+
+.more-about
+    // min-height: 50vh
+    width: 100%
+    margin: 0 auto
+    background: linear-gradient(10deg, transparent 50%, white 50%)
+    display: flex
+    position: relative
+    padding: 2.5% 0
+
+    &--wrapper
+        padding: 0 0 15%
+        flex-direction: column
+        align-items: center
+    &__title
+        font-size: calc(2rem + 0.75vw)
+        line-height: calc(2.25rem + 0.75vw)
+        display: flex
+        z-index: 2
+        color: $black
+        // mix-blend-mode: difference
+
+    &__description
+        padding: 2rem 0
+        z-index: 2
+        mix-blend-mode: difference
+        width: 60%
+        text-align: center
+        font-size: calc(0.35rem + 0.75vw)
+        line-height: calc(0.5rem + 0.75vw)
+
+    &__img
+        background-image: url("../img/me.jpg")
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        position: absolute
+        width: 25rem
+        height: 25rem
+        border-radius: 50%
+        border-bottom-left-radius: initial
+        border-top-right-radius: initial
+        top: 50%
+        right: 0%
+        transform: translate(-50%, -50%)
+        z-index: 1
+        transition: all 1s ease

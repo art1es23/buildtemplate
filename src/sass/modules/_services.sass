@@ -1,0 +1,60 @@
+@import '../helpers/var'
+
+.services
+    // min-height: 100vh
+    width: 100%
+    background-image: linear-gradient(35deg, yellow 50%, transparent 50%)
+    display: flex
+    align-items: center
+    padding: 10% 0
+
+    &--wrapper
+        justify-content: space-between
+        align-items: center
+
+    &__title
+        font-size: calc(3.5rem + 0.75vw)
+        line-height: calc(3.75rem + 0.75vw)
+        mix-blend-mode: difference
+
+.box-group
+    display: flex
+    width: 100%
+    // padding: 5% 0 5% 10%
+    flex-wrap: wrap
+    list-style: none
+    text-align: center
+    mix-blend-mode: difference
+
+    &__item
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2.5rem 0
+        width: 25%
+        opacity: 0
+        transform: translateY(30px)
+        height: auto
+        transition: $transition
+        mix-blend-mode: exclusion
+        &--show
+            opacity: 1
+
+    &__icon
+        background-position: center
+        background-size: 135%
+        background-repeat: no-repeat
+        width: 10rem
+        height: 10rem
+        border-radius: 50%
+        background-image: url("../img/service.jpg")
+        transition: all 1s ease
+
+        &:hover
+            transform: scale(1.2)
+            background-size: 150%
+
+    &__caption
+        font-size: calc(0.5rem + 0.75vw)
+        line-height: calc(0.75rem + 0.75vw)
+        padding: 1.5rem 0
