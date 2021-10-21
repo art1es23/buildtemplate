@@ -17,32 +17,102 @@
         flex-direction: column
         justify-content: space-around
         width: 100%
-        padding: 5%
+        padding: 5% 0 5% 5%
         text-align: right
         align-items: flex-end
         mix-blend-mode: difference
     &__img
-        width: 55rem
-        height: 32.5rem
-        background-image: url("../img/aboutus.jpg")
+        width: 55vw
+        height: 30vw
+        background-image: url("../img/about.jpg")
         background-position: center
-        background-size: 100%
+        background-size: cover
         background-repeat: no-repeat
         border-radius: 50%
-        transition: background 1s ease
+        transition: $transition
+        filter: grayscale(60%)
 
         &:hover
-            background-size: 110%
-            transition: background 1s ease
+            transition: $transition
+            filter: grayscale(0)
 
 .profile
     &__title
-        font-size: calc(2.5rem + 0.75vw)
-        line-height: calc(2.75rem + 0.75vw)
+        font-size: calc(1rem + 2vw)
+        line-height: calc(1rem + 2.25vw)
         width: 100%
+        text-align: right
 
     &__description
-        padding: 5rem 0
-        font-size: calc(0.5rem + 0.75vw)
-        line-height: calc(0.75rem + 0.75vw)
+        padding: 5vw 0
+        text-align: right
+        font-size: calc(0.25rem + 1vw)
+        line-height: calc(0.25rem + 1.5vw)
         width: 100%
+
+@media screen and ( max-width: 1366px)
+    .about
+        &__description
+            padding-left: 10%
+
+@media screen and ( max-width: 768px)
+    .about
+        &__description
+            padding: 5% 0 5% 2.5%
+        &__img
+            filter: none
+            width: 50vw
+    .profile
+        &__title
+            font-size: calc(1rem + 2.5vw)
+            line-height: calc(1rem + 2.75vw)
+
+        &__description
+            padding: 4vw 0
+            font-size: calc(0.5rem + 1.25vw)
+            line-height: calc(0.5rem + 1.75vw)
+
+@media screen and ( max-width: 600px)
+    .about
+        &--wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+            justify-items: center
+
+        &__img
+            width: 45vw
+            height: 45vw
+
+        &__description
+            padding: 5%
+            text-align: center
+            align-items: center
+
+    .profile
+        &__title
+            text-align: center
+            font-size: calc(1rem + 4vw)
+            line-height: calc(1rem + 4.25vw)
+
+        &__description
+            text-align: justify
+
+            font-size: calc(0.5rem + 1.75vw)
+            line-height: calc(0.5rem + 2.75vw)
+
+@media screen and ( max-width: 480px)
+    .about
+        &__img
+            width: 60vw
+            height: 60vw
+        &__description
+            padding: 5% 0
+    .profile
+        &__title
+            font-size: calc(1rem + 5vw)
+            line-height: calc(1rem + 5.25vw)
+
+        &__description
+            padding: 7.5vw 0
+            font-size: calc(0.5rem + 2.5vw)
+            line-height: calc(0.5rem + 4vw)

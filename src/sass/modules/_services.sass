@@ -3,7 +3,7 @@
 .services
     // min-height: 100vh
     width: 100%
-    background-image: linear-gradient(35deg, yellow 50%, transparent 50%)
+    background-image: linear-gradient(25deg, $yellow 50%, transparent 50%)
     display: flex
     align-items: center
     padding: 10% 0
@@ -13,8 +13,8 @@
         align-items: center
 
     &__title
-        font-size: calc(3.5rem + 0.75vw)
-        line-height: calc(3.75rem + 0.75vw)
+        font-size: calc(1rem + 2.75vw)
+        line-height: calc(1rem + 2.75vw)
         mix-blend-mode: difference
 
 .box-group
@@ -30,7 +30,7 @@
         display: flex
         flex-direction: column
         align-items: center
-        padding: 2.5rem 0
+        padding: 1.5vw 0
         width: 25%
         opacity: 0
         transform: translateY(30px)
@@ -44,8 +44,8 @@
         background-position: center
         background-size: 135%
         background-repeat: no-repeat
-        width: 10rem
-        height: 10rem
+        width: 8vw
+        height: 8vw
         border-radius: 50%
         background-image: url("../img/service.jpg")
         transition: all 1s ease
@@ -55,6 +55,49 @@
             background-size: 150%
 
     &__caption
-        font-size: calc(0.5rem + 0.75vw)
-        line-height: calc(0.75rem + 0.75vw)
+        font-size: calc(0.25rem + 1vw)
+        line-height: calc(0.25rem + 1.25vw)
         padding: 1.5rem 0
+
+@media screen and ( max-width: 768px)
+    .services
+        background-image: linear-gradient(-90deg, yellow 50%, transparent 50%)
+
+        &--wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+
+        &__title
+            text-align: right
+            font-size: calc(1rem + 4vw)
+            line-height: calc(1rem + 4.25vw)
+
+    .box-group
+        &__icon
+            width: 12.5vw
+            height: 12.5vw
+        &__caption
+            font-size: calc(0.5rem + 1.25vw)
+            line-height: calc(0.5rem + 1.25vw)
+
+@media screen and ( max-width: 480px )
+    .services
+        &--wrapper
+            display: grid
+            grid-template-columns: repeat(1, 1fr)
+
+        &__title
+            font-size: calc(1rem + 6.5vw)
+            line-height: calc(1rem + 6.75vw)
+
+    .box-group
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        &__item
+            width: 100%
+        &__icon
+            width: 20vw
+            height: 20vw
+        &__caption
+            font-size: calc(0.5rem + 2vw)
+            line-height: calc(0.5rem + 2.25vw)

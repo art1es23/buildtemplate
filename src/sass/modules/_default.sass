@@ -14,6 +14,8 @@ body
     position: relative
     background-color: $black
     color: $white
+    scroll-behavior: smooth
+
 a
     color: $black
     transition: color 0.3s ease-in-out
@@ -33,6 +35,7 @@ main
 
 .container
     width: 70%
+    position: relative
     margin: 0 auto
     display: flex
 
@@ -44,8 +47,8 @@ main
     margin-left: 0.25rem
 
 .link
-    font-size: calc(0.5rem + 0.75vw)
-    line-height: calc(0.75rem + 0.75vw)
+    font-size: calc(0.25rem + 1vw)
+    line-height: calc(0.25rem + 1.5vw)
     text-align: center
     width: 15rem
     padding: 1.25rem 2rem
@@ -91,3 +94,29 @@ main
 .main-color
     color: $red
     font-style: italic
+
+@media screen and ( max-width: 1600px)
+    .container
+        width: 80%
+
+@media screen and ( max-width: 1366px)
+    .container
+        width: 85%
+
+@media screen and ( max-width: 768px)
+    .link
+        font-size: calc(0.5rem + 1.25vw)
+        line-height: calc(0.5rem + 1.75vw)
+
+@media screen and ( max-width: 600px)
+    .link
+        font-size: calc(0.5rem + 1.75vw)
+        line-height: calc(0.5rem + 2.75vw)
+
+@media screen and ( max-width: 480px)
+    .container
+        width: 94%
+
+    .link
+        font-size: calc(0.5rem + 2.5vw)
+        line-height: calc(0.5rem + 4vw)

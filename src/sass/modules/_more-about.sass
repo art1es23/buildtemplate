@@ -1,7 +1,6 @@
 @import '../helpers/var'
 
 .more-about
-    // min-height: 50vh
     width: 100%
     margin: 0 auto
     background: linear-gradient(10deg, transparent 50%, white 50%)
@@ -14,12 +13,10 @@
         flex-direction: column
         align-items: center
     &__title
-        font-size: calc(2rem + 0.75vw)
-        line-height: calc(2.25rem + 0.75vw)
-        display: flex
+        font-size: calc(1rem + 1.75vw)
+        line-height: calc(1rem + 2.25vw)
         z-index: 2
         color: $black
-        // mix-blend-mode: difference
 
     &__description
         padding: 2rem 0
@@ -27,8 +24,8 @@
         mix-blend-mode: difference
         width: 60%
         text-align: center
-        font-size: calc(0.35rem + 0.75vw)
-        line-height: calc(0.5rem + 0.75vw)
+        font-size: calc(0.25rem + 0.85vw)
+        line-height: calc(0.25rem + 1.1vw)
 
     &__img
         background-image: url("../img/me.jpg")
@@ -36,13 +33,61 @@
         background-repeat: no-repeat
         background-size: cover
         position: absolute
-        width: 25rem
-        height: 25rem
+        width: 25vw
+        height: 25vw
         border-radius: 50%
         border-bottom-left-radius: initial
         border-top-right-radius: initial
         top: 50%
         right: 0%
-        transform: translate(-50%, -50%)
+        transform: translate(50%, -50%)
         z-index: 1
         transition: all 1s ease
+
+@media screen and ( max-width: 1600px)
+    .more-about
+        &__img
+            transform: translate(25%, -50%)
+
+@media screen and ( max-width: 768px)
+    .more-about
+        padding: 0
+        &__title
+            font-size: calc(1.25rem + 2.75vw)
+            line-height: calc(1.25rem + 3.25vw)
+
+        &__description
+            padding: 2rem 0
+            width: 85%
+            font-size: calc(0.5rem + 1.75vw)
+            line-height: calc(0.5rem + 2.75vw)
+        &__img
+            width: 30vw
+            height: 30vw
+
+@media screen and ( max-width: 600px)
+    .more-about
+        &--wrapper
+            align-items: flex-start
+        &__title
+            text-align: left
+        &__description
+            text-align: left
+
+@media screen and ( max-width: 480px)
+    .more-about
+        &--wrapper
+            padding: 5% 0
+        &__title
+            font-size: calc(1.25rem + 2.75vw)
+            line-height: calc(1.25rem + 3.25vw)
+
+        &__description
+            padding: 2rem 0
+            width: 100%
+            text-align: justify
+            font-size: calc(0.5rem + 2.5vw)
+            line-height: calc(0.5rem + 4vw)
+
+        &__img
+            display: none
